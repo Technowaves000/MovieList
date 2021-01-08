@@ -12,6 +12,25 @@ app.get('/home', controller.getHome);
 app.get('/film/:filmid', controller.getFilm);
 app.post('/postLogin', controller.postLogin);
 app.post('/postRegister', controller.postRegister);
+
+// reviews
 app.get('/film/:filmid/add-review', controller.getReview);
 app.post('/film/:filmid/postReview', controller.postReview);
+
+// adding films
+app.get('/addfilm', controller.addFilm);
+app.post('/postaddfilm', controller.postaddFilm);
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = app;
