@@ -91,9 +91,29 @@ const controller = {
 
     console.log(rev);
     res.render('home');
+  },
+
+  addFilm: async function (req, res) {
+      res.render('addfilm');
+  },
+
+  postaddFilm: async function (req, res) {
+      var title = req.body.add_title;
+      var year = req.body.add_year;
+      var desc = req.body.add_desc;
+
+      console.log(title);
+      console.log(year);
+      console.log(desc);
+      res.render('home');
   }
 
+
 }
+
+
+
+
 
 
 
