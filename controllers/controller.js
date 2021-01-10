@@ -84,13 +84,39 @@ const controller = {
     filename = 'img' + req.params.filmid + '.jpg';
     console.log(filename)
     res.render('review', {filename: filename});
+    console.log("this is getReview")
   },
 
   postReview: async function (req, res) {
     var rev = req.body.review_text;
 
     console.log(rev);
-    res.render('home');
+    console.log("this is postReview")
+    res.render('home',
+    {
+      film: [
+        {
+          filename: 'img1.jpg',
+          id: 001
+        },
+        {
+          filename: 'img2.jpg',
+          id: 002
+        },
+        {
+          filename: 'img3.jpg',
+          id: 003
+        },
+        {
+          filename: 'img4.jpg',
+          id: 004
+        },
+      ]
+    });
+  },
+
+  getProfile: function (req, res) {
+    res.render('profile');
   },
 
   addFilm: async function (req, res) {

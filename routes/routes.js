@@ -13,6 +13,8 @@ app.get('/film/:filmid', controller.getFilm);
 app.post('/postLogin', controller.postLogin);
 app.post('/postRegister', controller.postRegister);
 
+app.get('/profile', controller.getProfile);
+
 // reviews
 app.get('/film/:filmid/add-review', controller.getReview);
 app.post('/film/:filmid/postReview', controller.postReview);
