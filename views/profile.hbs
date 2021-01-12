@@ -155,6 +155,39 @@
             box-shadow: 0 8px 6px -6px #999;
         }
 
+		.subblock1 {
+		  float: left;
+		  flex: 30%;
+		  padding: 10px;
+		}
+		
+		.subblock2 {
+		  border: 4px solid darkgreen;
+		  height: 500px;
+		  float: left;
+		  flex: 70%;
+		  padding: 10px;
+		}
+		
+		.mainblock {
+			display: flex;
+			margin-left: 60px;
+			margin-right: 60px;
+			margin-bottom: 40px;
+		}
+		
+		.mainblock:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+
+		.pinfo{
+			padding: 12px;
+			color: #004022;
+            font-size: 20px;
+		}
+
         img{
             border-radius: 3px;
             border: 4px solid darkgreen;
@@ -165,6 +198,7 @@
         } --}}
 
         #username{
+			padding-left: 60px;
             color: #004022;
             font-size: 100px;
         }
@@ -200,19 +234,28 @@
     
     {{!-- This is for the profile --}}
     <div class="profile-main">
-
-        <div id="username">SHANIKOY'S PROFILE</div>
-        <img src="https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png">
-        <div id="gender">Gender: Female</div>
-        <div id="birthday">Birthday: January 12</div>
-        <div id="location">Location: Somewhere in my house</div>
-        <div id="review-count">Reviews: 1</div>
-        <div id="description">
-            <p>
-                Hello I am Shanikoy and I am pretty new here.</br>
-                The favorite thing I love doing is watching movies then reviewing them after.
-            </p>
-        </div>
+		<div id="username">SHANIKOY'S PROFILE</div>
+		<div class = "mainblock">
+			
+			
+			<div class = "subblock1">
+			<img src="https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png">
+				<div class = "pinfo">
+					<div id="gender">Gender: Female</div>
+					<div id="birthday">Birthday: January 12</div>
+					<div id="location">Location: Somewhere in my house</div>
+					<div id="review-count">Reviews: 1</div>
+				</div>
+			</div>
+			<div class = "subblock2">
+			<div id="description">
+				<p>
+					Hello I am Shanikoy and I am pretty new here.</br>
+					The favorite thing I love doing is watching movies then reviewing them after.
+				</p>
+			</div>
+			</div>
+		</div>
     </div>
 
     <footer class="pt-5 pb-3 bg-custom-primary footer-green">
