@@ -1,4 +1,6 @@
 const assert = require('assert');
+const movieModel = require("../models/movieModel.js")
+const userModel = require("../models/userModel.js")
 
 const controller = {
 
@@ -121,13 +123,31 @@ const controller = {
 
   addFilm: async function (req, res) {
       res.render('addfilm');
+      
   },
 
   postaddFilm: async function (req, res) {
       var title = req.body.add_title;
       var year = req.body.add_year;
-      var desc = req.body.add_desc;
+      var desc = req.body.add_desc; 
 
+      //display picture
+    //   function readURL(input) {
+    //     console.log("this is readURL")
+    //     if (input.files && input.files[0]) {
+    //         var reader = new FileReader();
+            
+    //         reader.onload = function (e) {
+    //             $('#tempPoster')
+    //                 .attr('src', e.target.result)
+    //                 .width(150)
+    //                 .height(200);
+    //         };
+
+    //         reader.readAsDataURL(input.files[0]);
+    //     }
+    // }
+      
       console.log(title);
       console.log(year);
       console.log(desc);
