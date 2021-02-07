@@ -9,10 +9,10 @@ const controller = {
   },
 
   postLogin: async function (req, res) {
-    var email = req.body.email;
+    var username = req.body.username;
     var pwd = req.body.password;
     console.log(req.body)
-    if (email == "shanikoi@gmail.com") {
+    if (username == "shanikoi@gmail.com") {
       if(pwd == "helloworld") {
         // req.session.loggedin = true;
         // req.session.username = username;
@@ -33,7 +33,7 @@ const controller = {
   },
 
   postRegister: async function(req, res){
-    var email = req.body.email;
+    var username = req.body.username;
     var pwd = req.body.password;
 
     // add to db code here
@@ -123,20 +123,20 @@ const controller = {
 
   addFilm: async function (req, res) {
       res.render('addfilm');
-      
+
   },
 
   postaddFilm: async function (req, res) {
       var title = req.body.add_title;
       var year = req.body.add_year;
-      var desc = req.body.add_desc; 
+      var desc = req.body.add_desc;
 
       //display picture
     //   function readURL(input) {
     //     console.log("this is readURL")
     //     if (input.files && input.files[0]) {
     //         var reader = new FileReader();
-            
+
     //         reader.onload = function (e) {
     //             $('#tempPoster')
     //                 .attr('src', e.target.result)
@@ -147,7 +147,7 @@ const controller = {
     //         reader.readAsDataURL(input.files[0]);
     //     }
     // }
-      
+
       console.log(title);
       console.log(year);
       console.log(desc);
