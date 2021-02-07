@@ -7,195 +7,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="/styles/partials.css">
+    <link rel="stylesheet" href="/styles/body.css">
 
-    <style>
-        *{
-            font-family: 'PT Mono', monospace;
-            box-sizing: border-box;
-        }
-
-        footer p{
-            font-size: 13px;
-        }
-
-        h1{
-            font-size: 40px;
-            margin-bottom: 50px;
-        }
-
-        .navbar-green{
-            background-color: #004022;
-            box-shadow: 0 8px 6px -6px #999;
-        }
-
-
-        .navbar-brand{
-            margin-left: 200px;
-            color: #FFFFFF;
-            font-size: 30px;
-        }
-
-
-        .navbar-brand:hover{
-            color: #FFFFFF;
-        }
-
-        .white-btn{
-            background-color: #FFFFFF;
-            border-color: #00B561;
-            color: #00B561;
-        }
-
-        .dropbtn {
-            background-color: #004022;
-            color: white;
-            padding: 10px;
-            margin-right: 200px;
-            font-size: 16px;
-            border: none;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #009550;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content .logout-btn {
-            color: black;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #ddd;
-            color: #004022;
-        }
-
-        .dropdown:hover .dropdown-content {display: block;}
-
-        .dropdown:hover .dropbtn {background-color: #009550;}
-
-        .search-box-container{
-            margin-top: 6px;
-            margin-right: 230px;
-        }
-
-        .search-btn{
-            background: url("/img/Search-Icon-Green.png") no-repeat;
-            background-color: #00D874;
-            background-position: center;
-            background-size: 20px;
-            width: 40px;
-            height: 35px;
-        }
-
-        .search-btn:hover{
-            background: url("/img/Search-Icon-White.png") no-repeat;
-            background-position: center;
-            background-size: 20px;
-            width: 40px;
-            height: 35px;
-        }
-
-        .search-box, .search-btn{
-            border-radius: 0px;
-			height: 35px;
-        }
-
-        .fa, .link-footer{
-            color: white;
-            text-decoration: none;
-        }
-
-        .fa:hover, .link-footer:hover{
-            color: aquamarine;
-        }
-
-        .footer-green{
-            background-color: #004022;
-            color: white;
-            /* position: fixed; */
-            left: 0;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .copy-footer{
-            margin-left: 150px;
-        }
-
-        .films {
-            padding-left: 200px;
-            padding-right: 100px;
-            padding-top: 50px;
-        }
-
-        .card-img-top{
-            margin-bottom: 50px;
-            box-shadow: 0 8px 6px -6px #999;
-        }
-
-        img{
-            border-radius: 3px;
-            border: 4px solid darkgreen;
-            width: 180px;
-        }
-
-        img:hover{
-            border: 4px solid #00D874;
-        }
-
-        .checked, .numerical-rating{
-            color: orange;
-        }
-
-        .unchecked{
-            color: darkgray;
-        }
-
-        .fa-star{
-             pointer-events: none;
-        }
-
-
-        .card{
-            border: 0px solid red;
-            margin-left: 50px;
-        }
-
-        .btn {
-        	font-size: 15px;
-        	padding: 8px;
-        	width: 50%;
-            background-color: #00D874;
-            border: 2px solid #004022;
-            color: #004022;
-        }
-
-        .btn:hover{
-            background-color: #004022;
-            border-color: #00D874;
-            color: #00D874;
-        }
-
-
-
-    </style>
-    <title>American Psycho</title>
+    <title>{{title}} {{year}}</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-green">
@@ -204,19 +19,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
-
-
                 <form class="d-flex search-box-container">
                     <input class="form-control search-box" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success search-btn" type="submit"></button>
+                    <button class="btn-outline-success search-btn" type="submit"></button>
                 </form>
-
                 <div class="dropdown">
                     <button class="dropbtn">SHANIKOY</button>
                     <div class="dropdown-content">
                         <a href="profile">Profile</a>
                         <a href="/addfilm">Add a Film</a>
-						<a href="#">Ratings</a>
+                        <a href="#">Reviews</a>
+                        <a href="#">Ratings</a>
                         <a class="logout-btn" href="#">Log Out</a>
                     </div>
                 </div>
@@ -228,7 +41,7 @@
         <div class="card mb-3" style="max-width: 840px;">
             <div class="row g-0">
                 <div class="col-md-3">
-                    <img src="../img/{{filename}}">
+                    <img class="img-display" src="{{url}}">
                 </div>
                 <div class="col-md-7">
                     <div class="card-body">
