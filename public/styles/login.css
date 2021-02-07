@@ -1,0 +1,88 @@
+*{
+  font-family: 'PT Mono', monospace;
+  box-sizing: border-box;
+}
+
+h1{
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.navbar-green{
+  background-color: #004022;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
+.navbar-brand{
+  color: #FFFFFF;
+  font-size: 30px;
+}
+
+.navbar-brand:hover{
+  color: #FFFFFF;
+}
+
+.white-btn{
+  background-color: #FFFFFF;
+  border-color: #00B561;
+  color: #00B561;
+}
+
+.white-btn:hover{
+  background-color: #00B561;
+  border-color: #00B561;
+  color: #FFFFFF;
+}
+
+.card{
+  width: 500px;
+  border-radius: 2px;
+  border-color: #00A559;
+  border-width: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  padding: 60px;
+  margin: 100 auto;
+  float: none;
+  margin-bottom: 10px;
+}
+
+.input-grp {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.input-grp label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.input-grp input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+}
+
+.form button {
+  font-size: 13px;
+  padding: 10px;
+  width: 100%;
+  background-color: #00B561;
+  border-color: #00B561;
+  color: #FFFFFF;
+}
+
+.form button:hover{
+  background-color: #FFFFFF;
+  border-color: #00B561;
+  color: #00B561;
+}
+
+#admin-boolean{
+    margin-bottom: 30px;
+}
