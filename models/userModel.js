@@ -7,7 +7,7 @@ mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
 });
 
 const userSchema = new mongoose.Schema({
-    Email: String,
+    Username: String,
     Password: String
 })
 
