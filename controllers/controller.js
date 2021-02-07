@@ -12,7 +12,7 @@ const controller = {
     var username = req.body.username;
     var pwd = req.body.password;
     console.log(req.body)
-    if (username == "shanikoi@gmail.com") {
+    if (username == "shanikoy") {
       if(pwd == "helloworld") {
         // req.session.loggedin = true;
         // req.session.username = username;
