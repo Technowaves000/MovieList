@@ -3,6 +3,37 @@
   box-sizing: border-box;
   
 }
+.film-container{
+  position: relative;
+  width: 50%;
+}
+
+/*home*/
+
+.grow {
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  width: 190px;
+  margin: 5px 1% 5px 1%;
+  float: left;
+  height:270px;
+  position: relative;
+  transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  text-align: center;
+  overflow: hidden;
+}
+.grow:hover {
+  height: 400px;
+}
+
+.hoverdrop-title{
+	border-bottom-style: solid;
+	border-bottom-color: green;
+	border-bottom-width: 2px;
+	box-shadow: 0 8px 6px -6px #999;
+}
+
 /* addfilm.hbs */
 
 .container-body{
