@@ -9,8 +9,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="/styles/partials.css">
     <link rel="stylesheet" href="/styles/body.css">
+
 </head>
-<body style= "background-color: #ecedef;">
+<body>
     <nav class="navbar navbar-expand-lg navbar-green">
         <div class="container-fluid">
             <a class="navbar-brand" href="/home">movielist</a>
@@ -34,44 +35,33 @@
             </div>
         </div>
     </nav>
-	
-	
-	
-<div class="site-content" style: "max-width: 1400px;">
+
     {{!-- This is for the profile --}}
-	<div class="content-splitter">
-		<div class="content-main">
-			<div class="profile-row1">
-				<div class="content-box">
-					<img src="https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png" style="width:100%" alt="Avatar">
-					<div class="profile-name black">
-						</h2>SHANIKOY</h2>
-					</div>
+    <div class="profile-main">
+		<div class = "mainblock">
+
+
+			<div class = "subblock1">
+				<div id = "profilepic">
+			<img src="https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png">
 				</div>
-				<div class="content-box">
-					<div class = "pinfo">
-						<div class="contributions" style= "font-size: 20px; font-weight: 550;">Contributions</div>
-					    <div id="rating-count">Movies rated: 1</div>
-						<div id="review-count">Movies reviewed: 1</div>
-					    <div id="movies-added">Movies added: 0</div>
-					</div>
+				<div class = "pinfo">
+          <div id="rating-count"><b>Movies rated:</b> 1</div>
+					<div id="review-count"><b>Movies reviewed:</b> 1</div>
+          <div id="movies-added"><b>Movies added:</b >0</div>
 				</div>
 			</div>
-			<div class="profile-row2">
-				<div class="content-box">
-					<div class="description black" style="font-size: 20px; font-weight:550;">Description</div>
-					<div class="description-content">
-						Hello I am Shanikoy and I am pretty new here.
-						The favorite thing I love doing is watching movies then reviewing them after.
-					</div>
-				</div>
+			<div class = "subblock2">
+				<div id="username">SHANIKOY</div>
+			<div id="pdescription">
+				<p>
+					Hello I am Shanikoy and I am pretty new here.
+					The favorite thing I love doing is watching movies then reviewing them after.
+				</p>
+			</div>
 			</div>
 		</div>
-	</div>
-</div>
-
-
-
+    </div>
 
     <footer class="pt-5 pb-3 bg-custom-primary footer-green">
       <div class="container">

@@ -1,8 +1,8 @@
 *{
-  font-family: 'PT Mono', monospace;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
+  
 }
-
 /* addfilm.hbs */
 
 .container-body{
@@ -105,51 +105,72 @@ img:hover{
 }
 
 /* profile.hbs */
-
-.subblock1 {
-  float: left;
-  flex: 30%;
-  padding: 10px;
-  margin-left: 100px;
+.profile-column{
+	float: left;
 }
 
-.subblock2 {
-  border: 4px solid darkgreen;
-  height: 500px;
-  float: left;
-  flex: 70%;
-  padding: 10px;
-  margin-right: 100px;
+.profile-row1{
+	float: left;
+	width: 25%;
+	padding-bottom: 500px;
 }
 
-.mainblock {
-  display: flex;
-  margin-left: 60px;
-  margin-right: 60px;
-  margin-bottom: 40px;
+.profile-name{
+	padding-top: 10px;
+	font-weight: 700;
+	font-size: 25px;
 }
 
-.mainblock:after {
-  content: "";
-  display: table;
-  clear: both;
+.black{
+	color: black;
+}
+#rating-count{
+	padding-top: 4px;
+	padding-bottom: 8px;
+	border-bottom-style: solid;
+	border-bottom-color: green;
+	border-bottom-width: 2px;
+	box-shadow: 0 8px 6px -6px #999;
+}
+#review-count{
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-bottom-style: solid;
+	border-bottom-color: green;
+	border-bottom-width: 2px;
+	box-shadow: 0 8px 6px -6px #999;
+}
+#movies-added{
+	padding-top: 8px;
+	padding-bottom: 4px;
 }
 
-.pinfo{
-  padding: 12px;
-  color: #004022;
-  font-size: 20px;
+.profile-row2{
+	float: left;
+	width: 75%;
 }
 
-#username{
-  padding-left: 60px;
-  color: #004022;
-  font-size: 40px;
-  margin-left: 100px;
+.description-content{
+	padding-top: 8px;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+.content-splitter{
+	margin-left: 12.5%;
+	margin-right:12.5%;
+	margin-top: 80px;
+	margin-bottom: 40px;
 }
 
-.default-pic{
-  width: 290px;
+.content-box{
+	margin-top: 10px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-bottom:10px;
+	box-shadow: 1px 1px 6px;	
+	padding: 10px;
+	background-color: white;
+	color: gray;
 }
 
 /* review.hbs */
