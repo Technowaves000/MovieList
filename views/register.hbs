@@ -26,6 +26,9 @@
     <div class="card">
         <h1>Register</h1>
         <form id="form" class="form" action = "postRegister" method="POST">
+          <div id="errors">
+            {{err}}
+          </div>
             <div class="input-grp">
                 <label for="username">Username</label>
                 <input type="username" placeholder="Username" id="username" name="username"/>

@@ -86,3 +86,7 @@ h1{
 #admin-boolean{
     margin-bottom: 30px;
 }
+
+#errors{
+  color: red;
+}
