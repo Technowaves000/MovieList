@@ -32,21 +32,38 @@ const controller = {
 
     // new logging({ Username: "username" }, (username, password, done) => {
     //   console.log("inside logging")
-      userModel.findOne({ username }, (err, data) => {
+      userModel.findOne({ Username: username }, (err, data) => {
+        console.log("entered findone")
+        console.log(data + " = this is data")
         if (err) throw err;
+        console.log("before data")
         if (!data) {
-          return done(null, false, {message: "Fill all the fields (flash)"});
+          // return done(null, false, {message: "Fill all the fields (flash)"});
+          console.log("err 1")
         }
-        bcrypt.compare(password, data.password, (err, match) => {
-          if (err) throw err;
+        console.log("before bcrypt")
+        bcrypt.compare(password, data.Password, (err, match) => {
+          // if (err) throw err;
+          console.log(password)
+          console.log(data.Password)
           if (!match) {
-            return done(null, false, {message: "email or password didn't match"});
+            // return done(null, false, {message: "email or password didn't match"});
+            console.log("err 2")
+            res.send('Incorrect Username and/or Password!');
           }
           if (match) {
-            return done(null, data);
+            // var username = req.body.username;
+            // return done(null, data);
+            console.log(username)
+             // req.session.loggedin = true;
+            // req.session.username = username;
+            res.redirect('/home');
+            // res.redirect('home');
           }
         });
       });
+      console.log(username + "= username")
+      console.log(password + "= password")
     // })
   },
 
