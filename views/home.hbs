@@ -44,13 +44,13 @@
             {{#each film}}
 			<div class ="col-sm-3 ">
 				<div class="grow" style="background-color: white; box-shadow: 0 8px 6px -6px #999; word-break: break-all;">
-				  <a href="/film/{{id}}"><img src="{{url}}" class="card-img-top" alt"{{url}}"></a>
+				  <a href="/film/{{_id}}"><img src="{{Picture}}" class="card-img-top" alt"{{Picture}}"></a>
 				  <div class="hoverdrop-content" style = "margin-top: -60px;">
 				  <p> <div class = "hoverdrop-title">
-				  Title
+				  {{Title}}
 				  </div>
 				  <div class = "hoverdrop-director">
-				  Director
+				  {{Year}}
 				  </div>
 				  </p>
 				  </div>

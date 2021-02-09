@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
-app.get('/', controller.getLogin);
+app.get('/', controller.getHome);
 app.get('/register', controller.getRegister);
 app.get('/home', controller.getHome);
 app.get('/film/:filmid', controller.getFilm);

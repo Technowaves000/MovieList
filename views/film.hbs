@@ -41,13 +41,13 @@
         <div class="card mb-3" style="max-width: 840px;">
             <div class="row g-0">
                 <div class="col-md-3">
-                    <img class="img-display" src="{{url}}">
+                    <img class="img-display" src="{{film.Picture}}">
                 </div>
                 <div class="col-md-7">
                     <div class="card-body">
-                        <h3 class="card-title">{{title}}</h3>
-                        <h5 class="card-year">{{year}}</h5>
-                        <p class="card-text">{{description}}</p>
+                        <h3 class="card-title">{{film.Title}}</h3>
+                        <h5 class="card-year">{{film.Year}}</h5>
+                        <p class="card-text">{{film.Description}}</p>
                         <span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
@@ -55,9 +55,9 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star unchecked"></span>
                         </span>
-                        <span class="numerical-rating">{{rating}}</span>
+                        <span class="numerical-rating">{{film.Rating}}</span>
                     </div>
-                    <a href="/film/{{filmid}}/add-review"><button class="btn">Create a Review</button></a>
+                    <a href="/film/{{film._id}}/add-review"><button class="btn">Create a Review</button></a>
                 </div>
             </div>
         </div>
