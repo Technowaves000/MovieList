@@ -2,6 +2,7 @@ const assert = require('assert');
 const db = require('../models/db.js');
 const movieModel = require("../models/movieModel.js")
 const userModel = require("../models/userModel.js")
+const reviewModel = require("../models/reviewModel.js")
 const {isAuthenticated, isNotAuthenticated } = require('../config/auth');
 const bcrypt = require("bcryptjs");
 
@@ -130,16 +131,39 @@ const controller = {
   },
 
   getReview: function (req, res) {
+    // loads the Review form
     var id = req.params.filmid;
 
+    // searches the database for the movie so that it can load the poster of the movie while creating a review
     db.findOne(movieModel, { _id: id }, {}, function(result){
         res.render('review', {review:result});
     })
   },
 
   postReview: async function (req, res) {
-    var rev = req.body.review_text;
     var rate = req.body.rate;
+
+    var review = {
+      Author: "temp_username",
+      Body: req.body.review_text
+    }
+
+    // TO DO:
+    // post review and ratings on DB
+
+    newReview = new reviewModel({review})
+    console.log("Created a new Review");
+
+    movieModel.updateOne({_id: req.params.filmid},
+                        {$push: {Review: review} },
+                        function(err, movie ){
+                          if(err) throw err;
+                          console.log("Review added")
+                        })
+
+
+    // Compute for Rating
+    // use $set instead of $push
 
     console.log(req.body);
     res.redirect('/film/' + req.params.filmid);
