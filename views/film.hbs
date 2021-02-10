@@ -9,8 +9,29 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="/styles/partials.css">
     <link rel="stylesheet" href="/styles/body.css">
+	
 
     <title>{{title}} {{year}}</title>
+	
+	<style>
+	#review-list {
+	  width: 1000px;
+	  margin-left: 26px;
+	  display: none;
+	  box-shadow: 1px 1px 6px;	
+		padding: 10px;
+		background-color: white;
+		color: gray;
+	}
+	.review-box{
+		box-shadow: 1px 1px 6px;	
+		padding: 10px;
+		background-color: white;
+		color: gray;
+	}
+	</style>
+	
+	
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-green">
@@ -45,10 +66,14 @@
                 </div>
                 <div class="col-md-7">
                     <div class="card-body">
-                        <h3 class="card-title">{{film.Title}}</h3>
+						<div class = " content-box">
+                        <h3 class="card-title" style = "color: black;">{{film.Title}}</h3>
+						<div class =  "film-year" style = "border-bottom-style: solid;border-bottom-color: green;border-bottom-width: 2px;box-shadow: 0 8px 6px -6px #999;">
                         <h5 class="card-year">{{film.Year}}</h5>
-                        <p class="card-text">{{film.Description}}</p>
-                        <span>
+						</div>
+						<div class = "film-rating" style = "margin-top:5px;">
+						Rating: 
+						<span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
@@ -56,8 +81,49 @@
                             <span class="fa fa-star unchecked"></span>
                         </span>
                         <span class="numerical-rating">{{film.Rating}}</span>
+						</div>
+						
+						</div>
+						<div class = "content-box" style= "width: 600px;">
+							<div id="film-desc-header" style="color:black; font-size: 17px; border-bottom-style: solid;border-bottom-color: green;border-bottom-width: 2px;box-shadow: 0 8px 6px -6px #999;">	
+								Description:
+							</div>
+							<p class="card-text" style = "margin-top:5px">{{film.Description}}</p>
+						</div>
+                        
                     </div>
-                    <a href="/film/{{film._id}}/add-review"><button class="btn">Create a Review</button></a>
+					<div class = "button-box" style = "margin-left:26px;margin-right:195px;margin-bottom:10px;box-shadow: 1px 1px 6px;	padding: 10px;background-color: white;color: gray;">
+                    <a href="/film/{{film._id}}/add-review"><button class="btn-create-review">Create a Review</button></a>
+					<button class = "btn-view-review" onclick="myFunction()"> View Reviews</button>
+					</div>
+					<div id="review-list">
+						<div id="review-list-header" style="color:black">
+							Reviews:
+						</div>
+						<!-- temporary review list content start -->
+						<div class="row row-no-gutters">
+							<div class="col-sm-6 review-box">This is a review(1)</div>
+							<div class="col-sm-6 review-box">This is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a reviewThis is a review</div>
+						<div class="col-sm-6 review-box">This is a review (3)</div>
+						<div class="col-sm-6 review-box">This is a review (4)</div>
+						
+						</div>
+						
+						<!-- temporary review list ends here-->
+					    
+						<!-- DB review list --
+						
+						<div class="row row-no-gutters">
+						{{#each film.review}}
+							<div class ="col-sm-6 revuew-box">
+								Review
+							</div>
+						{{/each}}
+						</div>
+						
+						-->
+						
+					</div>
                 </div>
             </div>
         </div>
@@ -83,5 +149,21 @@
         </div>
       </div>
     </footer>
+	
+	
+	
+	<script>
+function myFunction() {
+  var x = document.getElementById("review-list");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+
+
 </body>
 </html>

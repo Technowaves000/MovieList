@@ -24,7 +24,7 @@
   overflow: hidden;
 }
 .grow:hover {
-  height: 400px;
+  height: 350px;
 }
 
 .hoverdrop-title{
@@ -117,6 +117,34 @@ img:hover{
 }
 
 .btn:hover{
+  background-color: #004022;
+  border-color: #00D874;
+  color: #00D874;
+}
+
+.btn-create-review {
+  font-size: 15px;
+  padding: 8px;
+  background-color: #00D874;
+  border: 2px solid #004022;
+  color: #004022;
+}
+
+.btn-create-review:hover{
+  background-color: #004022;
+  border-color: #00D874;
+  color: #00D874;
+}
+
+.btn-view-review {
+  font-size: 15px;
+  padding: 8px;
+  background-color: #00D874;
+  border: 2px solid #004022;
+  color: #004022;
+}
+
+.btn-view-review:hover{
   background-color: #004022;
   border-color: #00D874;
   color: #00D874;
