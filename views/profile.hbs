@@ -22,7 +22,7 @@
                     <button class="btn-outline-success search-btn" type="submit"></button>
                 </form>
                 <div class="dropdown">
-                    <button class="dropbtn">SHANIKOY</button>
+                    <button class="dropbtn">{{username}}</button>
                     <div class="dropdown-content">
                         <a href="profile">Profile</a>
                         <a href="/addfilm">Add a Film</a>
@@ -38,19 +38,19 @@
 	
 	
 <div class="site-content" style: "max-width: 1400px;">
-    {{!-- This is for the profile --}}
+    <!-- This is for the profile -->
 	<div class="content-splitter">
 		<div class="content-main">
 			<div class="profile-row1">
 				<div class="content-box">
 					<img src="https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png" style="width:100%" alt="Avatar">
 					<div class="profile-name black">
-						</h2>SHANIKOY</h2>
+						</h2>{{username}}</h2>
 					</div>
 				</div>
 				<div class="content-box">
 					<div class = "pinfo">
-						<div class="contributions" style= "font-size: 20px; font-weight: 550;">Contributions</div>
+						<div class="contributions" style= "font-size: 20px; font-weight: 550; color:black">Contributions</div>
 					    <div id="rating-count">Movies rated: 1</div>
 						<div id="review-count">Movies reviewed: 1</div>
 					    <div id="movies-added">Movies added: 0</div>
