@@ -11,69 +11,60 @@
     <link rel="stylesheet" href="/styles/body.css">
 </head>
 <body style= "background-color: #ecedef;">
-    <nav class="navbar navbar-expand-lg navbar-green">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/home">movielist</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                </ul>
-                <form class="d-flex search-box-container">
-                    <input class="form-control search-box" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn-outline-success search-btn" type="submit"></button>
-                </form>
-                <div class="dropdown">
-                    <button class="dropbtn">{{username}}</button>
-                    <div class="dropdown-content">
-                        <a href="profile">Profile</a>
-                        <a href="/addfilm">Add a Film</a>
-                        <a href="#">Reviews</a>
-                        <a href="#">Ratings</a>
-                        <a class="logout-btn" href="#">Log Out</a>
-                    </div>
-                </div>
-            </div>
+  <nav class="navbar navbar-expand-lg navbar-green">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home">movielist</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <form class="d-flex search-box-container">
+        <input class="form-control search-box" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn-outline-success search-btn" type="submit"></button>
+      </form>
+      <div class="dropdown">
+        <button class="dropbtn">SHANIKOY</button>
+        <div class="dropdown-content">
+          <a href="profile">Profile</a>
+          <a href="/addfilm">Add a Film</a>
+          <a href="#">Reviews</a>
+          <a href="#">Ratings</a>
+          <a class="logout-btn" href="#">Log Out</a>
         </div>
-    </nav>
-	
-	
-	
-<div class="site-content" style: "max-width: 1400px;">
-    <!-- This is for the profile -->
-	<div class="content-splitter">
-		<div class="content-main">
-			<div class="profile-row1">
-				<div class="content-box">
-					<img src="https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png" style="width:100%" alt="Avatar">
-					<div class="profile-name black">
-						</h2>{{username}}</h2>
-					</div>
-				</div>
-				<div class="content-box">
-					<div class = "pinfo">
-						<div class="contributions" style= "font-size: 20px; font-weight: 550; color:black">Contributions</div>
-					    <div id="rating-count">Movies rated: 1</div>
-						<div id="review-count">Movies reviewed: 1</div>
-					    <div id="movies-added">Movies added: 0</div>
-					</div>
-				</div>
-			</div>
-			<div class="profile-row2">
-				<div class="content-box">
-					<div class="description black" style="font-size: 20px; font-weight:550;">Description</div>
-					<div class="description-content">
-						Hello I am Shanikoy and I am pretty new here.
-						The favorite thing I love doing is watching movies then reviewing them after.
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-
-    <footer class="pt-5 pb-3 bg-custom-primary footer-green">
+      </div>
+      </div>
+    </div>
+  </nav>
+  <div class="site-content" style: "max-width: 1400px;">
+  	<div class="content-splitter">
+  		<div class="content-main">
+  			<div class="profile-row1">
+  				<div class="content-box">
+  					<img src="https://www.cmcaindia.org/wp-content/uploads/2015/11/default-profile-picture-gmail-2.png" style="width:100%" alt="Avatar">
+  					<div class="profile-name black">
+  						</h2>{{username}}</h2>
+  					</div>
+  				</div>
+  				<div class="content-box">
+  					<div class = "pinfo">
+  						<div class="contributions" style= "font-size: 20px; font-weight: 550; color:black">Contributions</div>
+  					    <div id="rating-count">Movies rated: 1</div>
+  						<div id="review-count">Movies reviewed: 1</div>
+  					    <div id="movies-added">Movies added: 0</div>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="profile-row2">
+  				<div class="content-box">
+  					<div class="description black" style="font-size: 20px; font-weight:550;">Description</div>
+  					<div class="description-content">
+  						Hello I am Shanikoy and I am pretty new here.
+  						The favorite thing I love doing is watching movies then reviewing them after.
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+    <!-- <footer class="pt-5 pb-3 bg-custom-primary footer-green">
       <div class="container">
         <div class="row">
           <div class="col copy-footer">
@@ -93,7 +84,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
 </body>
 
 </html>

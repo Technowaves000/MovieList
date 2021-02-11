@@ -13,71 +13,70 @@
     <title>Add a Film</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-green">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/home">movielist</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                </ul>
-                <form class="d-flex search-box-container">
-                    <input class="form-control search-box" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn-outline-success search-btn" type="submit"></button>
-                </form>
-                <div class="dropdown">
-                    <button class="dropbtn">SHANIKOY</button>
-                    <div class="dropdown-content">
-                        <a href="profile">Profile</a>
-                        <a href="/addfilm">Add a Film</a>
-                        <a href="#">Reviews</a>
-						            <a href="#">Ratings</a>
-                        <a class="logout-btn" href="#">Log Out</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <div class="films">
-        <div class="container-fluid-body">
-            <form action="postaddFilm" method="POST">
-                <h1>ADD A FILM</h1>
-                <div class="row">
-                    <div class="col col-md-12"><input type="text" class="form-control" id="film-title" placeholder="Film Title" name="add_title"></div>
-                </div>
-                <div class="row">
-                    <div class="col col-md-12"><input type="number" class="form-control" id="film-year" placeholder="Year" name="add_year" min="1880" max="2021"></div>
-                </div>
-                <div class="row">
-                    <div class="col col-md-6"><textarea rows="8" cols="2" class="form-control" class="review-text" placeholder="Description" name="add_desc"></textarea></div>
-                    <div class="col col-md-6">Enter image URL: <input type="text" class="form-control" id="film-title" placeholder="Image URL" name="add_url"></div>
-                </div>
-                <div class="row">
-                    <div class="col col-md-12 ms-auto">
-                        <button type="submit" class="btn btn-primary submit-btn">ADD</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <footer class="pt-5 pb-3 bg-custom-primary footer-green">
-      <div class="container">
-        <div class="row">
-          <div class="col copy-footer">
-            <p>Copyright &copy; 2021 movieList</p>
-          </div>
-          <div class="col">
-            <h6>COMPANY</h6>
-            <p><a class="link-footer" href="#">TEAM</a></p>
-            <p><a class="link-footer" href="#">NPM PACKAGES</a></p>
-          </div>
-          <div class="col">
-            <h6>KEEP CONNECTED</h6>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-google-plus"></i></a>
-            <a href="#"><i class="fa fa-twitch"></i></a>
-          </div>
+  <nav class="navbar navbar-expand-lg navbar-green">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home">movielist</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <form class="d-flex search-box-container">
+        <input class="form-control search-box" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn-outline-success search-btn" type="submit"></button>
+      </form>
+      <div class="dropdown">
+        <button class="dropbtn">SHANIKOY</button>
+        <div class="dropdown-content">
+          <a href="profile">Profile</a>
+          <a href="/addfilm">Add a Film</a>
+          <a href="#">Reviews</a>
+          <a href="#">Ratings</a>
+          <a class="logout-btn" href="#">Log Out</a>
         </div>
       </div>
-    </footer>
+      </div>
+    </div>
+  </nav>
+  <div class="films">
+    <div class="container-fluid-body">
+      <form action="postaddFilm" method="POST">
+        <h1>ADD A FILM</h1>
+        <div class="row">
+          <div class="col col-md-12"><input type="text" class="form-control" id="film-title" placeholder="Film Title" name="add_title"></div>
+        </div>
+        <div class="row">
+          <div class="col col-md-12"><input type="number" class="form-control" id="film-year" placeholder="Year" name="add_year" min="1880" max="2021"></div>
+        </div>
+        <div class="row">
+          <div class="col col-md-6"><textarea rows="8" cols="2" class="form-control" class="review-text" placeholder="Description" name="add_desc"></textarea></div>
+          <div class="col col-md-6">Enter image URL: <input type="text" class="form-control" id="film-title" placeholder="Image URL" name="add_url"></div>
+        </div>
+        <div class="row">
+          <div class="col col-md-12 ms-auto">
+            <button type="submit" class="btn btn-primary submit-btn">ADD</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <footer class="pt-5 pb-3 bg-custom-primary footer-green">
+    <div class="container">
+      <div class="row">
+        <div class="col copy-footer">
+          <p>Copyright &copy; 2021 movieList</p>
+        </div>
+        <div class="col">
+          <h6>COMPANY</h6>
+          <p><a class="link-footer" href="#">TEAM</a></p>
+          <p><a class="link-footer" href="#">NPM PACKAGES</a></p>
+        </div>
+      <div class="col">
+        <h6>KEEP CONNECTED</h6>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-google-plus"></i></a>
+        <a href="#"><i class="fa fa-twitch"></i></a>
+      </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
