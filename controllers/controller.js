@@ -106,8 +106,11 @@ const controller = {
   },
 
   getHome: function(req, res) {
+    // var {username} = req.session.username
+    var username = req.session.username;
+    console.log(req.session.username)
     db.findMany(movieModel,{}, {}, function(result){
-      res.render('home',{film:result});
+      res.render('home',{film:result, username:username});
     })
   },
 
@@ -118,13 +121,17 @@ const controller = {
       Year: req.params.Year,
       Rating: req.params.Rating,
       Picture: req.params.Picture,
-      Review: []
+      Review: [],
     }
+    
+    var username = req.session.username;
+    console.log(req.session.username + "this is the session")
 
     db.findOne(movieModel, {_id: req.params.filmid}, {}, function(result1){
       db.findMany(reviewModel, {}, {}, function(result2){
         console.log(result1)
-        res.render('film', {film:result1});
+        console.log(username)
+        res.render('film', {film:result1, username:username});
       })
     })
   },
@@ -133,9 +140,11 @@ const controller = {
     // loads the Review form
     var id = req.params.filmid;
 
+    var username = req.session.username;
+
     // searches the database for the movie so that it can load the poster of the movie while creating a review
     db.findOne(movieModel, { _id: id }, {}, function(result){
-        res.render('review', {review:result});
+        res.render('review', {review:result, username:username});
     })
   },
 
@@ -143,7 +152,7 @@ const controller = {
       var rate = parseInt(req.body.rate);
       console.log("rate:"+rate)
       var review = {
-        Author: "Shanicka",
+        Author: req.session.username,
         Body: req.body.review_text
       }
 
@@ -191,11 +200,13 @@ const controller = {
   },
 
   getProfile: function (req, res) {
-    res.render('profile');
+    var username = req.session.username;
+    res.render('profile', {username:username});
   },
 
   addFilm: async function (req, res) {
-      res.render('addfilm');
+      var username = req.session.username;
+      res.render('addfilm', {username:username});
   },
 
   postaddFilm: async function (req, res) {
