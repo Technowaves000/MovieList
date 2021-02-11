@@ -6,6 +6,7 @@ const handlebars = require('handlebars');
 const db = require('./models/db.js');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo')(session);
 
 require("dotenv").config();
@@ -19,6 +20,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 app.use(express.static('public'));
 app.use('/', routes);
+app.use(cookieParser())
 
 db.connect();
 
