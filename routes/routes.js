@@ -22,6 +22,8 @@ app.get('/', controller.getLogin);
 app.get('/register', controller.getRegister);
 app.get('/home', controller.getHome);
 app.get('/film/:filmid', controller.getFilm);
+app.get('/logout', controller.getLogOut);
+
 app.post('/postLogin', controller.postLogin);
 app.post('/postRegister', controller.postRegister);
 
