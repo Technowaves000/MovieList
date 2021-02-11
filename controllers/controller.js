@@ -124,9 +124,20 @@ const controller = {
   },
 
   getFilm: function(req, res) {
+    var film_details = {
+      Title: req.params.Title,
+      Description: req.params.Description,
+      Year: req.params.Year,
+      Rating: req.params.Rating,
+      Picture: req.params.Picture,
+      Review: []
+    }
 
-    db.findOne(movieModel, {_id: req.params.filmid}, {}, function(result){
-        res.render('film', {film:result});
+    db.findOne(movieModel, {_id: req.params.filmid}, {}, function(result1){
+      db.findMany(reviewModel, {}, {}, function(result2){
+        console.log(result1)
+        res.render('film', {film:result1});
+      })
     })
   },
 
@@ -141,32 +152,54 @@ const controller = {
   },
 
   postReview: async function (req, res) {
-    var rate = req.body.rate;
+      var rate = parseInt(req.body.rate);
+      console.log("rate:"+rate)
+      var review = {
+        Author: "Shanicka",
+        Body: req.body.review_text
+      }
 
-    var review = {
-      Author: "temp_username",
-      Body: req.body.review_text
-    }
+      newReview = new reviewModel({review})
+      console.log("Created a new review")
 
-    // TO DO:
-    // post review and ratings on DB
+      movieModel.updateOne({_id:req.params.filmid}, {$push: {Review: review}},
+        function(err, movie){ if(err) throw err; console.log("Review added on DB")})
 
-    newReview = new reviewModel({review})
-    console.log("Created a new Review");
+      movieModel.findOne({_id:req.params.filmid}, 'Rating numRaters',
+        function(err, movie){
+          if(err)
+            return handleError(err)
 
-    movieModel.updateOne({_id: req.params.filmid},
-                        {$push: {Review: review} },
-                        function(err, movie ){
-                          if(err) throw err;
-                          console.log("Review added")
-                        })
+          var raters = parseInt(movie.numRaters)
+          console.log("numRaters: " + raters)
+          raters++
+          console.log("numRaters + 1: " + raters)
 
+          var rating = parseFloat(movie.Rating);
+          console.log("movie.Rating: " + rating)
+          var accumulatedRating = rating + rate
+          console.log("Rating + req.body.rate: " + accumulatedRating)
+          console.log("numRaters: " + raters)
+          var newRating = (accumulatedRating / raters).toFixed(2)
+          console.log("accumulatedRating / raters: " + newRating)
+          console.log("numRaters: " + raters)
 
-    // Compute for Rating
-    // use $set instead of $push
+          if(newRating > 5){
+            newRating = 5
+            console.log(newRating)
+          }  else if(newRating < 0) {
+            newRating = 0
+            console.log(newRating)
+          }
 
-    console.log(req.body);
-    res.redirect('/film/' + req.params.filmid);
+          movieModel.updateOne({_id: req.params.filmid},
+            {$set: {Rating: newRating, numRaters: raters}},
+              function(err, movie){if(err) throw err; })
+
+        })
+
+      console.log(req.body)
+      res.redirect('/film/' + req.params.filmid)
   },
 
   getProfile: function (req, res) {
@@ -179,14 +212,19 @@ const controller = {
 
   postaddFilm: async function (req, res) {
       var movie = {
-          Title: req.body.add_title,
-          Year: req.body.add_year,
-          Description: req.body.add_desc,
+          Title:        req.body.add_title,
+          Year:         req.body.add_year,
+          Description:  req.body.add_desc,
+          Rating:       '0',
+          numRaters:    '0',
           Picture: req.body.add_url
       }
 
       db.insertOne(movieModel, movie, function(flag){});
 
+
+
+      console.log(req.body)
       res.redirect('/home');
   }
 
