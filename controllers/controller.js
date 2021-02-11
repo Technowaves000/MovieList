@@ -13,22 +13,7 @@ const controller = {
   },
 
   postLogin: async function (req, res) {
-    // var username = req.body.username;
-    // var pwd = req.body.password;
-    // if (username == "shanikoy") {
-    //   if(pwd == "helloworld") {
-    //     // req.session.loggedin = true;
-    //     // req.session.username = username;
-    //     res.redirect('/home');
-    //   }
-    //   else {
-    //     res.send('Wrong password');
-    //   }
-    // }
-    // else {
-    //   res.send('Incorrect Username and/or Password!');
-    // }
-    // res.end();
+
     let {username, password} = req.body;
 
     // new logging({ Username: "username" }, (username, password, done) => {
@@ -57,12 +42,15 @@ const controller = {
             // return done(null, data);
             console.log(username)
              // req.session.loggedin = true;
-            // req.session.username = username;
+            req.session.username = req.body.username
+            console.log("session:" + req.session.username)
             res.redirect('/home');
             // res.redirect('home');
           }
         });
       });
+
+
       console.log(username + "= username")
       console.log(password + "= password")
     // })
