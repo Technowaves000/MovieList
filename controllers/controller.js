@@ -123,7 +123,7 @@ const controller = {
       Picture: req.params.Picture,
       Review: [],
     }
-    
+
     var username = req.session.username;
     console.log(req.session.username + "this is the session")
 
@@ -226,6 +226,16 @@ const controller = {
 
       console.log(req.body)
       res.redirect('/home');
+  },
+
+  getLogOut: function (req, res) {
+
+      req.session.destroy(function(err) {
+          if (err) throw err;
+
+          res.redirect('/');
+      })
+
   }
 
 }
