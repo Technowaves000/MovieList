@@ -168,16 +168,17 @@ const controller = {
             return handleError(err)
 
           var raters = parseInt(movie.numRaters)
+          var oldRaters = parseInt(movie.numRaters)
           console.log("numRaters: " + raters)
           raters++
           console.log("numRaters + 1: " + raters)
 
           var rating = parseFloat(movie.Rating);
           console.log("movie.Rating: " + rating)
-          var accumulatedRating = rating + rate
+          var accumulatedRating = rating
           console.log("Rating + req.body.rate: " + accumulatedRating)
           console.log("numRaters: " + raters)
-          var newRating = (accumulatedRating / raters).toFixed(2)
+          var newRating = (((accumulatedRating * oldRaters) + rate)/ raters).toFixed(2)
           console.log("accumulatedRating / raters: " + newRating)
           console.log("numRaters: " + raters)
 
