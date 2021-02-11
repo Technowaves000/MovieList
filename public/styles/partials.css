@@ -103,10 +103,10 @@ footer p{
 .footer-green{
     background-color: #004022;
     color: white;
-    position: fixed;
-    left: 0;
+    /* position: fixed; */
+    /* left: 0;
     bottom: 0;
-    width: 100%;
+    width: 100%; */
 }
 
 .copy-footer{
