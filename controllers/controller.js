@@ -105,12 +105,18 @@ const controller = {
   },
 
   getHome: function(req, res) {
-    // var {username} = req.session.username
     var username = req.session.username;
-    console.log(req.session.username)
-    db.findMany(movieModel,{}, {}, function(result){
-      res.render('home',{film:result, username:username});
-    })
+
+    // If there is no session, user cannot go to localhost:3000/home
+    if(!req.session.username){
+        res.redirect('/')
+    } else {
+        console.log(req.session.username)
+        db.findMany(movieModel,{}, {}, function(result){
+          res.render('home',{film:result, username:username});
+        })
+    }
+
   },
 
   getFilm: function(req, res) {
@@ -126,13 +132,18 @@ const controller = {
     var username = req.session.username;
     console.log(req.session.username + "this is the session")
 
-    db.findOne(movieModel, {_id: req.params.filmid}, {}, function(result1){
-      db.findMany(reviewModel, {}, {}, function(result2){
-        console.log(result1)
-        console.log(username)
-        res.render('film', {film:result1, username:username});
-      })
-    })
+    // If there is no session, user cannot go to localhost:3000/film/filmid
+    if(!req.session.username){
+        res.redirect('/')
+    } else {
+        db.findOne(movieModel, {_id: req.params.filmid}, {}, function(result1){
+          db.findMany(reviewModel, {}, {}, function(result2){
+            console.log(result1)
+            console.log(username)
+            res.render('film', {film:result1, username:username});
+          })
+        })
+    }
   },
 
   getReview: function (req, res) {
@@ -141,10 +152,15 @@ const controller = {
 
     var username = req.session.username;
 
-    // searches the database for the movie so that it can load the poster of the movie while creating a review
-    db.findOne(movieModel, { _id: id }, {}, function(result){
-        res.render('review', {review:result, username:username});
-    })
+    // If there is no session, user cannot go to localhost:3000/review
+    if(!req.session.username){
+        res.redirect('/')
+    } else {
+        // searches the database for the movie so that it can load the poster of the movie while creating a review
+        db.findOne(movieModel, { _id: id }, {}, function(result){
+            res.render('review', {review:result, username:username});
+        })
+    }
   },
 
   postReview: async function (req, res) {
@@ -201,12 +217,23 @@ const controller = {
 
   getProfile: function (req, res) {
     var username = req.session.username;
-    res.render('profile', {username:username});
+
+    // If there is no session, user cannot go to localhost:3000/profile
+    if(!req.session.username){
+        res.redirect('/')
+    } else {
+        res.render('profile', {username:username});
+    }
   },
 
   addFilm: async function (req, res) {
       var username = req.session.username;
-      res.render('addfilm', {username:username});
+      // If there is no session, user cannot go to add film
+      if(!req.session.username){
+          res.redirect('/')
+      } else {
+        res.render('addfilm', {username:username});
+      }
   },
 
   postaddFilm: async function (req, res) {
@@ -220,8 +247,6 @@ const controller = {
       }
 
       db.insertOne(movieModel, movie, function(flag){});
-
-
 
       console.log(req.body)
       res.redirect('/home');
