@@ -26,6 +26,9 @@
   <div class="card">
     <h1>Log In</h1>
     <form class="form" action="postLogin" method="POST">
+      <div id="errors">
+        {{err}}
+      </div>
       <div class="input-grp">
         <label for="username">Username</label>
         <input type="username" placeholder="Username" id="username" name="username"/>
