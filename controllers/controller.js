@@ -13,43 +13,47 @@ const controller = {
   },
 
   postLogin: async function (req, res) {
-
+    let err;
     let {username, password} = req.body;
 
-    // new logging({ Username: "username" }, (username, password, done) => {
-    //   console.log("inside logging")
-      userModel.findOne({ Username: username }, (err, data) => {
-        console.log("entered findone")
-        console.log(data + " = this is data")
-        if (err) throw err;
-        console.log("before data")
-        if (!data) {
-          // return done(null, false, {message: "Fill all the fields (flash)"});
-          console.log("err 1")
-        }
-        console.log("before bcrypt")
-        bcrypt.compare(password, data.Password, (err, match) => {
-          // if (err) throw err;
-          console.log(password)
-          console.log(data.Password)
-          if (!match) {
-            // return done(null, false, {message: "email or password didn't match"});
-            console.log("err 2")
-            res.send('Incorrect Username and/or Password!');
-          }
-          if (match) {
-            // var username = req.body.username;
-            // return done(null, data);
-            console.log(username)
-             // req.session.loggedin = true;
-            req.session.username = req.body.username
-            console.log("session:" + req.session.username)
-            res.redirect('/home');
-            // res.redirect('home');
-          }
-        });
-      });
+    if(!username || !password){
+        err = "Please Fill All The Required Fields";
+        res.render("login", { err });
+    }
 
+    if(err == null){
+          userModel.findOne({ Username: username }, (err, data) => {
+            console.log("entered findone")
+            console.log(data + " = this is data")
+            if (err) throw err;
+            console.log("before data")
+            if (!data) {
+              // return done(null, false, {message: "Fill all the fields (flash)"});
+              console.log("err 1")
+            }
+            console.log("before bcrypt")
+            bcrypt.compare(password, data.Password, (err, match) => {
+              // if (err) throw err;
+              console.log(password)
+              console.log(data.Password)
+              if (!match) {
+                // return done(null, false, {message: "email or password didn't match"});
+                console.log("err 2")
+                res.send('Incorrect Username and/or Password!');
+              }
+              if (match) {
+                // var username = req.body.username;
+                // return done(null, data);
+                console.log(username)
+                 // req.session.loggedin = true;
+                req.session.username = req.body.username
+                console.log("session:" + req.session.username)
+                res.redirect('/home');
+                // res.redirect('home');
+              }
+            });
+          });
+      }
 
       console.log(username + "= username")
       console.log(password + "= password")
@@ -61,15 +65,10 @@ const controller = {
   },
 
   postRegister: async function(req, res){
-    // var username = req.body.username;
-    // var pwd = req.body.password;
     let err;
     let {username, password} = req.body;
-    // add to db code here
 
-
-    // db.insertOne(userModel, user, function(flag){});
-
+    // If user does not fill the fields
     if (!username || !password) {
       err = "Please Fill All The Fields...";
       res.render("register", { err });
