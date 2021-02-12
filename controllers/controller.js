@@ -9,7 +9,13 @@ const bcrypt = require("bcryptjs");
 const controller = {
 
   getLogin: function (req, res) {
-    res.render('login');
+    // If there is already a session, user should be redirected to home
+    var username = req.session.username;
+    if(req.session.username){
+        res.redirect('/home')
+    } else {
+        res.render('login');
+    }
   },
 
   postLogin: async function (req, res) {
@@ -22,6 +28,7 @@ const controller = {
     }
 
     if(err == null){
+          // success = "You have successfully logged in!"
           userModel.findOne({ Username: username }, (err, data) => {
             console.log("entered findone")
             console.log(data + " = this is data")
@@ -61,7 +68,19 @@ const controller = {
   },
 
   getRegister: function (req, res) {
-    res.render('register');
+    // If there is already a session, and user goes to register, session gets destroyed
+    var username = req.session.username;
+    if(req.session.username){
+
+      // destroy session
+      req.session.destroy(function(err) {
+          if (err) throw err;
+          res.redirect('/');
+      })
+
+    } else {
+        res.render('register');
+    }
   },
 
   postRegister: async function(req, res){
