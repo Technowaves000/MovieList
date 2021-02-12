@@ -28,7 +28,9 @@
         <button class="dropbtn">{{username}}</button>
         <div class="dropdown-content">
           <a href="profile">Profile</a>
-          <a href="/addfilm">Add a Film</a>
+          {{#if Admin}}
+            <a href="/addfilm">Add a Film</a>
+          {{/if}}
           <a href="#">Reviews</a>
           <a href="#">Ratings</a>
           <a class="logout-btn" href="/logout">Log Out</a>

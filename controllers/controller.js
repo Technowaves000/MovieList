@@ -20,7 +20,7 @@ const controller = {
 
   postLogin: async function (req, res) {
     let err;
-    let {username, password} = req.body;
+    let {username, password, admin_bool} = req.body;
 
     if(!username || !password){
         err = "Please Fill All The Required Fields";
@@ -54,7 +54,7 @@ const controller = {
                 console.log(username)
                  // req.session.loggedin = true;
                 req.session.username = req.body.username
-                console.log("session:" + req.session.username)
+                console.log("req.session:" + req.session)
                 res.redirect('/home');
                 // res.redirect('home');
               }
@@ -85,7 +85,9 @@ const controller = {
 
   postRegister: async function(req, res){
     let err;
-    let {username, password} = req.body;
+    let {username, password, admin_bool} = req.body;
+    console.log("1st check admin_bool: " + req.body.admin_bool)
+    console.log("1st check username: " + req.body.username)
 
     // If user does not fill the fields
     if (!username || !password) {
@@ -107,10 +109,23 @@ const controller = {
             bcrypt.hash(password, salt, (err, hash) => {
               if (err) throw err;
               password = hash;
+
+              if(admin_bool === undefined){
+                admin_bool = false;
+              } else {
+                admin_bool = true;
+              }
+
+              console.log("2nd check admin_bool:"+admin_bool)
+
               var user = {
                 Username: username,
-                Password: password
+                Password: password,
+                Admin: admin_bool
               }
+
+              console.log("3rd check admin_bool:"+user.Admin)
+
               db.insertOne(userModel, user, function(flag){});
               res.redirect('/')
             });
@@ -132,7 +147,17 @@ const controller = {
     } else {
         console.log(req.session.username)
         db.findMany(movieModel,{}, {}, function(result){
-          res.render('home',{film:result, username:username});
+
+          // check if user is admin
+          userModel.findOne({ Username: username }, 'Admin', function (err, user) {
+            if (err) throw err;
+            var admin_bool = user.Admin;
+            console.log("HOMEADMINCHECK:"+admin_bool);
+            res.render('home',{film:result,
+                              username:username, Admin:admin_bool});
+
+          });
+
         })
     }
 
@@ -157,9 +182,16 @@ const controller = {
     } else {
         db.findOne(movieModel, {_id: req.params.filmid}, {}, function(result1){
           db.findMany(reviewModel, {}, {}, function(result2){
-            console.log(result1)
-            console.log(username)
-            res.render('film', {film:result1, username:username});
+
+            // --- CHECK IF USER IS ADMIN --- //
+            userModel.findOne({ Username: username }, 'Admin', function (err, user) {
+              if (err) throw err;
+              var admin_bool = user.Admin;
+              console.log("GETFILMADMINCHECK:"+admin_bool);
+              res.render('film', {film:result1, username:username, Admin:admin_bool});
+            });
+            // --- CHECK IF USER IS ADMIN --- //
+
           })
         })
     }
@@ -177,7 +209,15 @@ const controller = {
     } else {
         // searches the database for the movie so that it can load the poster of the movie while creating a review
         db.findOne(movieModel, { _id: id }, {}, function(result){
-            res.render('review', {review:result, username:username});
+
+          // --- CHECK IF USER IS ADMIN --- //
+          userModel.findOne({ Username: username }, 'Admin', function (err, user) {
+            if (err) throw err;
+            var admin_bool = user.Admin;
+            console.log("GETREVIEWADMINCHECK:"+admin_bool);
+            res.render('review', {review:result, username:username, Admin:admin_bool});
+          });
+          // --- CHECK IF USER IS ADMIN --- //
         })
     }
   },
@@ -241,17 +281,32 @@ const controller = {
     if(!req.session.username){
         res.redirect('/')
     } else {
-        res.render('profile', {username:username});
+        // --- CHECK IF USER IS ADMIN --- //
+        userModel.findOne({ Username: username }, 'Admin', function (err, user) {
+          if (err) throw err;
+          var admin_bool = user.Admin;
+          console.log("GETPROFILEADMINCHECK:"+admin_bool);
+          res.render('profile', {username:username, Admin:admin_bool});
+        });
+        // --- CHECK IF USER IS ADMIN --- //
     }
   },
 
   addFilm: async function (req, res) {
       var username = req.session.username;
+      var admin_boolean = req.session.admin_boolean;
+
       // If there is no session, user cannot go to add film
       if(!req.session.username){
           res.redirect('/')
       } else {
-        res.render('addfilm', {username:username});
+        // --- CHECK IF USER IS ADMIN --- //
+        userModel.findOne({ Username: username }, 'Admin', function (err, user) {
+          if (err) throw err;
+          var admin_bool = user.Admin;
+          console.log("ADDFILMADMINCHECK:"+admin_bool);
+          res.render('addfilm', {username:username, Admin:admin_bool});
+        });
       }
   },
 
